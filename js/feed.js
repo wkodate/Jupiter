@@ -1,11 +1,5 @@
 var entryCount = 3;
 
-var rssList = new Array(
-    'http://blog.livedoor.jp/yakiusoku/index.rdf',
-    'http://absurd.blogo.jp/index.rdf',
-    'http://blog.livedoor.jp/nanjstu/index.rdf'
-);
-
 google.load("feeds", "1");
 
 function initialize() {
@@ -44,15 +38,15 @@ function initialize() {
                     console.log(entry.publishedDate);
 
                     var tr = document.createElement("tr");
-                    tr.appendChild(linkTd);
-                    tr.appendChild(rssTd);
-                    tr.appendChild(dateTd);
+                tr.appendChild(linkTd);
+                tr.appendChild(rssTd);
+                tr.appendChild(dateTd);
 
-                    container.appendChild(tr);
-                }
-                
+                container.appendChild(tr);
             }
-        });
+            
+        }
+    });
     }
 
 }
