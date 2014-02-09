@@ -55,14 +55,17 @@ function initialize() {
 
 function getViewDate(pDate) {
 
+    var dayArray = new Array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
     var d = new Date(pDate);
-    var year = d.getFullYear();
-    var month = d.getMonth()+1;
-    var date = d.getDate();
-    var hours = ("0"+d.getHours()).slice(-2);
+    var year    = d.getFullYear();
+    var month   = d.getMonth()+1;
+    var date    = d.getDate();
+    var dayNum  = d.getDay();
+    var day     = dayArray[dayNum];
+    var hours   = ("0"+d.getHours()).slice(-2);
     var minutes = ("0"+d.getMinutes()).slice(-2)
 
-    return year+'/'+month+'/'+date+' '+hours+':'+minutes;
+    return year+'/'+month+'/'+date+'('+day+')'+' '+hours+':'+minutes;
 
 }
 
