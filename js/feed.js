@@ -6,9 +6,11 @@ function initialize() {
     var rss = rssList;
 
     for (var i=0; i<rss.length; i++) {
+
         var feed = new google.feeds.Feed(rss[i]);
         feed.setNumEntries(entryCount);
         feed.load(function(result) {
+
             if (!result.error) {
                 var container = document.getElementById('feed');
                 // 取得
@@ -35,20 +37,32 @@ function initialize() {
 
                     // date
                     var dateTd = document.createElement("td");
-                    dateTd.appendChild(document.createTextNode(entry.publishedDate));
-                    console.log(entry.publishedDate);
+                    pubDate = getViewDate(entry.publishedDate);
+                    dateTd.appendChild(document.createTextNode(pubDate));
 
                     var tr = document.createElement("tr");
-                tr.appendChild(linkTd);
-                tr.appendChild(rssTd);
-                tr.appendChild(dateTd);
+                    tr.appendChild(linkTd);
+                    tr.appendChild(rssTd);
+                    tr.appendChild(dateTd);
 
-                container.appendChild(tr);
-            }
+                    container.appendChild(tr);
+                }
             
-        }
-    });
+            }
+        });
     }
+}
+
+function getViewDate(pDate) {
+
+    var d = new Date(pDate);
+    var year = d.getFullYear();
+    var month = d.getMonth()+1;
+    var date = d.getDate();
+    var hours = ("0"+d.getHours()).slice(-2);
+    var minutes = ("0"+d.getMinutes()).slice(-2)
+
+    return year+'/'+month+'/'+date+' '+hours+':'+minutes;
 
 }
 
