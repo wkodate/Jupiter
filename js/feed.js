@@ -28,6 +28,7 @@ function initialize() {
 
                     // channel link
                     var rssLink = document.createElement("a");
+                    rssLink.href = channelLink;
                     rssLink.appendChild(document.createTextNode(channelTitle));
                     var rssTd = document.createElement("td");
                     rssTd.appendChild(rssLink);
