@@ -58,6 +58,7 @@ function initialize() {
                 // item link
                 var link = document.createElement("a");
                 link.href = items[k].itemLink;
+                link.target = '_brank';
                 link.appendChild(document.createTextNode(items[k].itemTitle));
                 var linkTd = document.createElement("td");
                 linkTd.appendChild(link);
@@ -65,6 +66,7 @@ function initialize() {
                 // channel link
                 var rssLink = document.createElement("a");
                 rssLink.href = items[k].channelLink;
+                rssLink.target = '_brank';
                 rssLink.appendChild(document.createTextNode(items[k].channelTitle));
                 var rssTd = document.createElement("td");
                 rssTd.appendChild(rssLink);
