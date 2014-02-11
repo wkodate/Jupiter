@@ -40,7 +40,6 @@ function initialize() {
                 return;
             }
 
-
             // sort
             items.sort(
                 function(a,b) {
@@ -55,31 +54,31 @@ function initialize() {
             // view
             for (var k=0; k<items.length; k++) {
 
+                // date
+                var dateTd = document.createElement("td");
+                pubDate = getViewDate(items[k].itemPubDate);
+                var br = document.createElement("br");
+                br.appendChild(document.createTextNode(br));
+                var rssLink = document.createElement("a");
+                rssLink.href = items[k].channelLink;
+                rssLink.target = '_brank';
+                rssLink.appendChild(document.createTextNode(items[k].channelTitle));
+                dateTd.appendChild(document.createTextNode(pubDate));
+                dateTd.appendChild(br);
+                dateTd.appendChild(rssLink);
+
                 // item link
                 var link = document.createElement("a");
                 link.href = items[k].itemLink;
                 link.target = '_brank';
                 link.appendChild(document.createTextNode(items[k].itemTitle));
+
                 var linkTd = document.createElement("td");
                 linkTd.appendChild(link);
 
-                // channel link
-                var rssLink = document.createElement("a");
-                rssLink.href = items[k].channelLink;
-                rssLink.target = '_brank';
-                rssLink.appendChild(document.createTextNode(items[k].channelTitle));
-                var rssTd = document.createElement("td");
-                rssTd.appendChild(rssLink);
-
-                // date
-                var dateTd = document.createElement("td");
-                pubDate = getViewDate(items[k].itemPubDate);
-                dateTd.appendChild(document.createTextNode(pubDate));
-
                 var tr = document.createElement("tr");
-                tr.appendChild(linkTd);
-                tr.appendChild(rssTd);
                 tr.appendChild(dateTd);
+                tr.appendChild(linkTd);
                 container.appendChild(tr);
 
             }
@@ -92,7 +91,6 @@ function getViewDate(pDate) {
 
     var dayArray = new Array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
     var d = new Date(pDate);
-    var year    = d.getFullYear();
     var month   = d.getMonth()+1;
     var date    = d.getDate();
     var dayNum  = d.getDay();
@@ -100,7 +98,7 @@ function getViewDate(pDate) {
     var hours   = ("0"+d.getHours()).slice(-2);
     var minutes = ("0"+d.getMinutes()).slice(-2)
 
-    return year+'/'+month+'/'+date+'('+day+')'+' '+hours+':'+minutes;
+    return month+'/'+date+'('+day+')'+' '+hours+':'+minutes;
 
 }
 
