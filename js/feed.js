@@ -1,4 +1,5 @@
-var entryNum = 5;
+var entryNum = 10;
+var totalViewNum = 50;
 
 google.load("feeds", "1");
 
@@ -52,7 +53,7 @@ function initialize() {
             )
 
             // view
-            for (var k=0; k<items.length; k++) {
+            for (var k=0; k<totalViewNum; k++) {
 
                 // date
                 var dateTd = document.createElement("td");
