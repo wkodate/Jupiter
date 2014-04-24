@@ -1,7 +1,7 @@
 <?php
-require_once('./RSSParser.php');
+require_once('./parser/AbstractParser.php');
 
-class RSS10Parser extends RSSParser {
+class RSS20Parser extends AbstractParser {
 
     private $title;
     private $link;
@@ -21,7 +21,8 @@ class RSS10Parser extends RSSParser {
     }
 
     public function getDate($item) {
-        return (string)$item->children('http://purl.org/dc/elements/1.1/')->date;
+        return null;
+        //return (string)$item->children('http://purl.org/dc/elements/1.1/')->date;
     }
 
 }
