@@ -21,7 +21,7 @@ class RSS10Parser extends AbstractParser {
     }
 
     public function getDate($item) {
-        return (string)$item->children('http://purl.org/dc/elements/1.1/')->date;
+        return $item->children('http://purl.org/dc/elements/1.1/')->date;
     }
 
 }

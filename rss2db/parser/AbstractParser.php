@@ -1,6 +1,6 @@
 <?php
 
-abstract class AbstractRSSParser {
+abstract class AbstractParser {
 
     abstract protected function getTitle($item);
     abstract protected function getLink($item);

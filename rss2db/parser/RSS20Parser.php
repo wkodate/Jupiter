@@ -21,8 +21,7 @@ class RSS20Parser extends AbstractParser {
     }
 
     public function getDate($item) {
-        return null;
-        //return (string)$item->children('http://purl.org/dc/elements/1.1/')->date;
+        return $item->pubDate;
     }
 
 }

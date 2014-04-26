@@ -13,16 +13,16 @@ class AtomParser extends AbstractParser {
     }
     
     public function getLink($item) {
-        return $item->link;
+        return $item->link->attribute()->href;
     }
 
     public function getDescription($item) {
-        return $item->description;
+        return $item->content;
     }
 
     public function getDate($item) {
         return null;
-        //return (string)$item->children('http://purl.org/dc/elements/1.1/')->date;
+        return $item->published;
     }
 
 }
