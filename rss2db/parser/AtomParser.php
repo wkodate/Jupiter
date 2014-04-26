@@ -3,11 +3,6 @@ require_once('./parser/AbstractParser.php');
 
 class AtomParser extends AbstractParser {
 
-    private $title;
-    private $link;
-    private $description;
-    private $date;
-
     public function getTitle($item) {
         return $item->title;
     }
@@ -17,12 +12,19 @@ class AtomParser extends AbstractParser {
     }
 
     public function getDescription($item) {
-        return $item->content;
+        if ($item->content) {
+            return $item->content;
+        } else {
+            return null;
+        }
     }
 
     public function getDate($item) {
-        return null;
-        return $item->published;
+        if (isset($item->published)) {
+            return $item->published;
+        } else {
+            return null;
+        }
     }
 
 }

@@ -3,11 +3,6 @@ require_once('./parser/AbstractParser.php');
 
 class RSS20Parser extends AbstractParser {
 
-    private $title;
-    private $link;
-    private $description;
-    private $date;
-
     public function getTitle($item) {
         return $item->title;
     }
@@ -17,11 +12,19 @@ class RSS20Parser extends AbstractParser {
     }
 
     public function getDescription($item) {
-        return $item->description;
+        if (isset($item->description)) {
+            return $item->description;
+        } else {
+            return null;
+        }
     }
 
     public function getDate($item) {
-        return $item->pubDate;
+        if (isset($item->pubDate)) {
+            return $item->pubDate;
+        } else {
+            return null;
+        }
     }
 
 }

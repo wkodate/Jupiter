@@ -9,10 +9,12 @@ abstract class AbstractParser {
 
     public function parse($item) {
 
-        echo $this->getTitle($item), PHP_EOL;
-        echo $this->getLink($item), PHP_EOL;
-        echo $this->getDescription($item), PHP_EOL;
-        echo $this->getDate($item), PHP_EOL;
+        $items['title'] = (string)$this->getTitle($item);
+        $items['link'] = (string)$this->getLink($item);
+        $items['description'] = (string)$this->getDescription($item);
+        $items['date'] = (string)$this->getDate($item);
+
+        return $items;
 
     }
 

@@ -3,10 +3,7 @@ require_once('./parser/AbstractParser.php');
 
 class RSS10Parser extends AbstractParser {
 
-    private $title;
-    private $link;
-    private $description;
-    private $date;
+    Const DC_NAMESPACE = 'http://purl.org/dc/elements/1.1/';
 
     public function getTitle($item) {
         return $item->title;
@@ -17,11 +14,19 @@ class RSS10Parser extends AbstractParser {
     }
 
     public function getDescription($item) {
-        return $item->description;
+        if (isset($item->description)) {
+            return $item->description;
+        } else {
+            return null;
+        }
     }
 
     public function getDate($item) {
-        return $item->children('http://purl.org/dc/elements/1.1/')->date;
+        if (isset($item->children(self::DC_NAMESPACE)->date)) {
+        return $item->children(self::DC_NAMESPACE)->date;
+        } else {
+            return null;
+        }
     }
 
 }
