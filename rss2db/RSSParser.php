@@ -1,7 +1,8 @@
 <?php
-require_once('./parser/RSS10Parser.php');
-require_once('./parser/RSS20Parser.php');
-require_once('./parser/AtomParser.php');
+require_once('/var/www/rss2db/Common.php');
+require_once(Common::ROOT_DIR . '/rss2db/parser/RSS10Parser.php');
+require_once(Common::ROOT_DIR . '/rss2db/parser/RSS20Parser.php');
+require_once(Common::ROOT_DIR . '/rss2db/parser/AtomParser.php');
 
 class RSSParser {
 

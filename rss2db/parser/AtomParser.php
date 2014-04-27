@@ -1,5 +1,6 @@
 <?php
-require_once('./parser/AbstractParser.php');
+require_once('/var/www/rss2db/Common.php');
+require_once(Common::ROOT_DIR . '/rss2db/parser/AbstractParser.php');
 
 class AtomParser extends AbstractParser {
 

@@ -1,6 +1,7 @@
 <?php
-require_once('./RSSParser.php');
-require_once('./DBManager.php');
+require_once('/var/www/rss2db/Common.php');
+require_once(Common::ROOT_DIR . '/rss2db/RSSParser.php');
+require_once(Common::ROOT_DIR . '/rss2db/DBManager.php');
 
 $lines = file_get_contents('./rssList.txt');
 // 改行文字を取り除く
