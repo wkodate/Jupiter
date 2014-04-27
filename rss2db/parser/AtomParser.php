@@ -12,7 +12,7 @@ class AtomParser extends AbstractParser {
     }
 
     public function getDescription($item) {
-        if ($item->content) {
+        if (isset($item->content)) {
             return $item->content;
         } else {
             return null;

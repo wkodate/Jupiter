@@ -50,9 +50,5 @@ class RSSParser {
         return $this->items;
     }
 
-    public function getItems() {
-
-    }
-
 }
 
