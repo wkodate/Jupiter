@@ -1,5 +1,5 @@
 <?php
-require_once('/var/www/rss2db/Common.php');
+require_once('/var/www/jupiter/Common.php');
 require_once(Common::ROOT_DIR . '/rss2db/RSSParser.php');
 require_once(Common::ROOT_DIR . '/rss2db/DBManager.php');
 
