@@ -87,8 +87,26 @@ class DBManager {
         }
     }
 
-    public function getAllItems() {
-        return $this->pdo->query('SELECT link, title, description, date FROM items')->fetchAll();
+    public function getItem($url) {
+        $stmt = $this->pdo->prepare(implode(' ', array(
+            'SELECT *',
+            'FROM items',
+            'WHERE link = ?',
+            'LIMIT 1',
+        )));
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
+    public function getItems($limit) {
+        $stmt = $this->pdo->prepare(implode(' ', array(
+            'SELECT *',
+            'FROM items',
+            'ORDER BY date DESC',
+            'LIMIT ?',
+        )));
+        $stmt->execute(array($limit));
+        return $stmt->fetchAll();
     }
 
 }
