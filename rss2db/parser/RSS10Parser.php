@@ -1,5 +1,5 @@
 <?php
-require_once('/var/www/jupiter/Common.php');
+require_once('/var/www/html/jupiter/Common.php');
 require_once(Common::ROOT_DIR . '/rss2db/parser/AbstractParser.php');
 
 class RSS10Parser extends AbstractParser {

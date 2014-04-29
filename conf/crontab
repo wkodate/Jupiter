@@ -1,1 +1,1 @@
-0 * * * * root /usr/bin/php /var/www/rss2db/rss2db.php
+0 * * * * /usr/bin/php /var/www/html/jupiter/rss2db/rss2db.php >/tmp/crontab.log 2>&1
