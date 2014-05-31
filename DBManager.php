@@ -46,7 +46,7 @@ class DBManager {
         try {
             $stmt = $this->pdo->prepare(implode(' ', array(
                 'INSERT',
-                'INTO items(link, title, description, date, rss_url, created, modified)',
+                'INTO items(link, title, description, date, image, rss_url, created, modified)',
                 'VALUES (?, ?, ?, ?, ?, NOW(), NOW())',
             )));
             $stmt->execute(array(
@@ -54,6 +54,7 @@ class DBManager {
                 $item['title'], 
                 $item['description'], 
                 $item['date'], 
+                $item['image'],
                 $rssUrl));
             $id = $this->pdo->lastInsertId();
             $this->pdo->commit();
@@ -69,13 +70,14 @@ class DBManager {
         try {
             $stmt = $this->pdo->prepare(implode(' ', array(
                 'UPDATE',
-                'items SET title=?, description=?, date=?, rss_url=?, modified=NOW()',
+                'items SET title=?, description=?, date=?, image=?, rss_url=?, modified=NOW()',
                 'WHERE link = ?'
             )));
             $stmt->execute(array(
                 $item['title'], 
                 $item['description'], 
                 $item['date'], 
+                $item['image'],
                 $rssUrl, 
                 $item['link']));
             $id = $this->pdo->lastInsertId();
