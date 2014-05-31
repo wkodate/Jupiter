@@ -47,7 +47,7 @@ class DBManager {
             $stmt = $this->pdo->prepare(implode(' ', array(
                 'INSERT',
                 'INTO items(link, title, description, date, image, rss_url, created, modified)',
-                'VALUES (?, ?, ?, ?, ?, NOW(), NOW())',
+                'VALUES (?, ?, ?, ?, ?, ?, NOW(), NOW())',
             )));
             $stmt->execute(array(
                 $item['link'], 
