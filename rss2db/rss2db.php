@@ -30,7 +30,6 @@ foreach ($lines as $rssUrl) {
             fputs(STDOUT, '[SKIP] ' . $item['link'] . " is already existed.\n");
             continue;
         }
-        $updated = true;
         // Open Graph Protcol Helper
         $graph = OpenGraph::fetch($item['link']);
         // imageタグが存在すれば取得
@@ -40,8 +39,9 @@ foreach ($lines as $rssUrl) {
         }
         // To DB
         // TODO まとめて登録できるようにする
-        //$dbManager->registerItems($item, $rssUrl);
+        $dbManager->registerItems($item, $rssUrl);
         fputs(STDOUT, '[UPDATE] ' . $item['link'] . "\n");
+        $updated = true;
         sleep(1);
     }
     // 1件も更新がなければsleep
