@@ -21,6 +21,7 @@ foreach ($lines as $rssUrl) {
 
     // Parse RSS
     $items = $rssParser->parse($rssUrl);
+    sleep(1);
 
     // To DB
     foreach ($items as $item) {
