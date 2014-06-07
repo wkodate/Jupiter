@@ -16,7 +16,7 @@ class AtomParser extends AbstractParser {
         if (isset($item->content)) {
             return $item->content;
         } else {
-            return null;
+            return "";
         }
     }
 
@@ -24,7 +24,7 @@ class AtomParser extends AbstractParser {
         if (isset($item->published)) {
             return $item->published;
         } else {
-            return null;
+            return "";
         }
     }
 
