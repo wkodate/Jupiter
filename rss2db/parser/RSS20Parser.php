@@ -16,7 +16,7 @@ class RSS20Parser extends AbstractParser {
         if (isset($item->description)) {
             return $item->description;
         } else {
-            return null;
+            return "";
         }
     }
 
@@ -24,7 +24,7 @@ class RSS20Parser extends AbstractParser {
         if (isset($item->pubDate)) {
             return $item->pubDate;
         } else {
-            return null;
+            return "";
         }
     }
 

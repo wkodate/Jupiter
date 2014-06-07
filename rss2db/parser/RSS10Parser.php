@@ -18,7 +18,7 @@ class RSS10Parser extends AbstractParser {
         if (isset($item->description)) {
             return $item->description;
         } else {
-            return null;
+            return "";
         }
     }
 
@@ -26,7 +26,7 @@ class RSS10Parser extends AbstractParser {
         if (isset($item->children(self::DC_NAMESPACE)->date)) {
         return $item->children(self::DC_NAMESPACE)->date;
         } else {
-            return null;
+            return "";
         }
     }
 
