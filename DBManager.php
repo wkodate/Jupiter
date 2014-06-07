@@ -102,9 +102,9 @@ class DBManager {
 
     public function getItems($limit) {
         $stmt = $this->pdo->prepare(implode(' ', array(
-            'SELECT *',
-            'FROM items',
-            'ORDER BY date DESC',
+            'SELECT i.link, i.title, i.description, i.date, i.image, r.title as rss_title',
+            'FROM items as i, rss as r',
+            'WHERE i.rss_url = r.rss_url ORDER BY date DESC',
             'LIMIT ?',
         )));
         $stmt->execute(array($limit));
