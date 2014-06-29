@@ -1,1 +1,2 @@
-0 * * * * /usr/bin/php /var/www/html/jupiter/rss2db/rss2db.php >/tmp/crontab.log 2>&1
+0 * * * * /usr/bin/php /var/www/html/jupiter/rss2db/rss2db.php > /tmp/rss2db.log 2>&1
+50 * * * * /usr/bin/php /var/www/html/jupiter/db2json/db2json.php > /tmp/db2json.log 2>&1

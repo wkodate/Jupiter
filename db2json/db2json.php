@@ -10,6 +10,11 @@ $dbManager = new DBManager(Common::DB_NAME, Common::DB_HOST, Common::DB_USER, Co
 $items = $dbManager->getItems(NUM_OF_ITEMS);
 echo json_encode($items);
 
+$file = '/var/www/html/jupiter/index.json';
+$fp = fopen($file, 'a');
+fwrite($fp, sprintf(json_encode($items)));
+fclose($fp);
+
 // Disconnect DB
 $dbManager=null;
 
