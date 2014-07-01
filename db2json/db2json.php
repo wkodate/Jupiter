@@ -11,7 +11,7 @@ $items = $dbManager->getItems(NUM_OF_ITEMS);
 echo json_encode($items);
 
 $file = '/var/www/html/jupiter/index.json';
-$fp = fopen($file, 'a');
+$fp = fopen($file, 'w');
 fwrite($fp, sprintf(json_encode($items)));
 fclose($fp);
 
