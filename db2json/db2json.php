@@ -12,7 +12,9 @@ echo json_encode($items);
 
 $file = '/var/www/html/jupiter/index.json';
 $fp = fopen($file, 'w');
-fwrite($fp, sprintf(json_encode($items)));
+flock($fp, LOCK_EX);
+fwrite($fp, json_encode($items));
+flock($fp, LOCK_UN);
 fclose($fp);
 
 // Disconnect DB
